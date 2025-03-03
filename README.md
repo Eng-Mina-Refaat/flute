@@ -1,6 +1,6 @@
 # flute2
 
-A new Flutter project.
+Application to learn to play the flute.
 
 ## Getting Started
 

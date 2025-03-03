@@ -1,4 +1,4 @@
-# flute2
+# flute
 
 Application to learn to play the flute.
 

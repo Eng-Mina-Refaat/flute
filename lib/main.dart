@@ -1,9 +1,7 @@
 import 'package:flute2/business_logic/audio_cubit/audio_cubit.dart';
-import 'package:flute2/business_logic/tuner_cubit/cubit/tuner_cubit.dart';
 import 'package:flute2/data/repository/recordrepository.dart';
 import 'package:flute2/data/model/record_model.dart';
-import 'package:flute2/presentation/pages/home_page.dart';
-import 'package:flute2/test_page.dart';
+import 'package:flute2/presentation/pages/tuner_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -31,10 +29,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => RecordCubit(RecordRepository()),
         ),
-        BlocProvider(
-          create: (context) =>
-              TunerCubit(audioRepository: audioRepository)..init(),
-        )
       ],
       child: MaterialApp(
         locale: Locale('ar', 'EG'),

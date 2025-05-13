@@ -1,10 +1,11 @@
 import 'package:flute2/business_logic/audio_cubit/audio_cubit.dart';
 import 'package:flute2/data/repository/recordrepository.dart';
 import 'package:flute2/data/model/record_model.dart';
-import 'package:flute2/presentation/pages/tuner_page.dart';
+import 'package:flute2/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -30,19 +31,23 @@ class MyApp extends StatelessWidget {
           create: (context) => RecordCubit(RecordRepository()),
         ),
       ],
-      child: MaterialApp(
-        locale: Locale('ar', 'EG'),
-        supportedLocales: [
-          Locale('ar', 'EG'),
-          Locale('en', 'US'),
-        ],
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        debugShowCheckedModeBanner: false,
-        home: TunerScreen(),
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        builder: (context, child) => MaterialApp(
+          locale: Locale('ar', 'EG'),
+          supportedLocales: [
+            Locale('ar', 'EG'),
+            Locale('en', 'US'),
+          ],
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          debugShowCheckedModeBanner: false,
+          home: HomePage(),
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flute2/presentation/pages/flute_pages/insided_flute_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FlutePage extends StatelessWidget {
   final List flutePages = [
@@ -49,8 +50,6 @@ class FlutePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
     return Scaffold(
       backgroundColor: Colors.grey[600],
       body: SafeArea(
@@ -59,31 +58,30 @@ class FlutePage extends StatelessWidget {
           height: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  // opacity: .9,
                   fit: BoxFit.fill,
                   image: AssetImage('assets/images/flute9.jpg'))),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                spacing: screenWidth * .3,
+                spacing: 110.w,
                 children: [
                   IconButton(
-                      padding: EdgeInsets.only(right: 10),
+                      padding: EdgeInsets.only(right: 8.w),
                       onPressed: () {
                         Navigator.pop(context);
                       },
                       icon: Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 25,
+                        size: 23.r,
                       )),
                   AnimatedTextKit(
                     animatedTexts: [
                       WavyAnimatedText(
                         'Flute',
-                        textStyle: const TextStyle(
-                          fontSize: 30,
+                        textStyle: TextStyle(
+                          fontSize: 27.sp,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -100,7 +98,7 @@ class FlutePage extends StatelessWidget {
                   return Opacity(
                     opacity: .8,
                     child: Card(
-                        margin: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(8.r),
                         child: ListTile(
                           onTap: () => Navigator.push(
                               context,
@@ -112,7 +110,7 @@ class FlutePage extends StatelessWidget {
                           title: Text(
                             flutePages[index]['title'],
                             style: TextStyle(
-                                fontSize: 22,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.bold,
                                 wordSpacing: 3),
                           ),
@@ -121,7 +119,7 @@ class FlutePage extends StatelessWidget {
                             maxLines: 1,
                             style: TextStyle(
                               wordSpacing: 4,
-                              fontSize: 18,
+                              fontSize: 16.sp,
                             ),
                           ),
                         )),

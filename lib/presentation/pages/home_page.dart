@@ -2,7 +2,9 @@
 // import 'package:flute2/presentation/pages/exercise_page.dart';
 import 'package:flute2/presentation/pages/flute_pages/flute_page.dart';
 import 'package:flute2/presentation/pages/skills_pages/skills_page.dart';
+import 'package:flute2/presentation/pages/tuner_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,22 +17,11 @@ class _HomePageState extends State<HomePage> {
   List fluteList = [
     {'name': 'الة الناي', 'icon': Icons.tune, 'page': FlutePage()},
     {'name': 'المهارات', 'icon': Icons.school, 'page': SkillsPage()},
-    // {
-    //   'name': ' تدريبات ',
-    //   'icon': Icons.assignment_outlined,
-    //   'page': ExercisePage()
-    // },
-    // {
-    //   'name': 'غرفة الاستماع',
-    //   'icon': Icons.campaign_outlined,
-    //   'page': RecordScreen()
-    // }
+    {'name': 'Tuner', 'icon': Icons.music_note, 'page': TunerScreen()},
   ];
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
     return Scaffold(
       backgroundColor: Colors.grey[600],
       body: SafeArea(
@@ -45,13 +36,13 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: screenHeight * .08,
+                  height: 60.h,
                 ),
                 FittedBox(
                   child: Text(
                     'Flute',
                     style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
@@ -60,24 +51,24 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     'لتعليم العزف علي آلة الناي',
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
                 ),
                 SizedBox(
-                  height: screenHeight * .06,
+                  height: 40.h,
                 ),
                 SizedBox(
-                  height: screenHeight * .3,
-                  width: screenWidth * .97,
+                  height: 400.h,
+                  width: 350.w,
                   child: GridView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: fluteList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisExtent: screenHeight * .25,
+                        mainAxisExtent: 200.h,
                         crossAxisCount: 2,
-                        crossAxisSpacing: screenWidth * .06),
+                        crossAxisSpacing: 10.w),
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
@@ -93,11 +84,11 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Icon(
                                 fluteList[index]['icon'],
-                                size: 35,
+                                size: 33.r,
                               ),
                               Text(fluteList[index]['name'],
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 22.sp,
                                     fontWeight: FontWeight.bold,
                                   ))
                             ],

@@ -1,5 +1,6 @@
 import 'package:flute2/presentation/reusable_widget/custom_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:hive_flutter/hive_flutter.dart';
 
 class InsidedFlutePage extends StatelessWidget {
@@ -10,9 +11,6 @@ class InsidedFlutePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
         backgroundColor: Colors.grey[600],
         body: SafeArea(
@@ -28,17 +26,17 @@ class InsidedFlutePage extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  spacing: screenWidth * .12,
+                  spacing: 50.w,
                   children: [
                     IconButton(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: EdgeInsets.only(right: 8.w),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                         icon: Icon(
                           Icons.arrow_back,
                           color: Colors.white,
-                          size: 25,
+                          size: 23.r,
                         )),
                     // SizedBox(
                     //   width: screenWidth * .10,
@@ -46,7 +44,7 @@ class InsidedFlutePage extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                          fontSize: 24, wordSpacing: 3, color: Colors.white),
+                          fontSize: 22.sp, wordSpacing: 3, color: Colors.white),
                     ),
                   ],
                 ),

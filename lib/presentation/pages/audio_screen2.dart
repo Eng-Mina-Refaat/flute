@@ -3,6 +3,7 @@ import 'package:flute2/business_logic/audio_cubit/audio_cubit.dart';
 import 'package:flute2/business_logic/audio_cubit/audio_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
@@ -130,9 +131,6 @@ class RecordScreenState extends State<RecordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -142,15 +140,15 @@ class RecordScreenState extends State<RecordScreen> {
         child: Column(
           children: [
             Container(
-              width: screenWidth * .2,
-              height: screenHeight * .1,
-              margin: const EdgeInsets.only(top: 5, bottom: 8),
+              width: 80.w,
+              height: 80.h,
+              margin: EdgeInsets.only(top: 5.h, bottom: 8.h),
               child: TextField(
                 controller: _titleController,
                 decoration: InputDecoration(
                   labelText: 'اسم التسجيل',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(13.r),
                   ),
                 ),
               ),
@@ -163,7 +161,7 @@ class RecordScreenState extends State<RecordScreen> {
                 backgroundColor: _isRecording ? Colors.red : Colors.blue,
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             BlocBuilder<RecordCubit, RecordState>(
               builder: (context, state) {
                 if (state is RecordLoaded) {
@@ -181,8 +179,8 @@ class RecordScreenState extends State<RecordScreen> {
                           .format(record.timestamp);
 
                       return Card(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 13.w, vertical: 6.h),
                         child: ListTile(
                           leading: IconButton(
                             onPressed: () {

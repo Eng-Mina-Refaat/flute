@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCard extends StatelessWidget {
   final String textString;
@@ -8,13 +9,16 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
+        margin: EdgeInsets.symmetric(horizontal: 13.w, vertical: 8.h),
         child: Padding(
-          padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
+          padding: EdgeInsets.only(top: 3.h, left: 7.w, right: 7.w),
           child: Text(
             textString,
             style: TextStyle(
-                letterSpacing: .5, wordSpacing: 4, fontSize: 20, color: color),
+                letterSpacing: .5,
+                wordSpacing: 4,
+                fontSize: 17.sp,
+                color: color),
           ),
         ));
   }
